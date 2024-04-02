@@ -23,7 +23,7 @@ const personalMovieDB = {
 function rememberMyFilms() {
 	// ******************* <---for---> ********************
 	for (let i = 0; i < 2; i++) {
-		const lastFilmSeen = prompt("What is the last film did you seen?", ""),
+		const lastFilmSeen = prompt("What is the last film did you seen?", "").trim(),
 			valueOfFilm = prompt("How would you rate him?", "");
 		
 		if (lastFilmSeen != null && valueOfFilm != null && lastFilmSeen != "" && valueOfFilm != "" && lastFilmSeen.length < 50) {
@@ -63,8 +63,20 @@ showMyDB(personalMovieDB.private);
 
 function writeYourGenres() {
 	for (let i = 1; i <= 3; i++) {
-		personalMovieDB.genres[i - 1] = prompt("Your favorite genres has a number ${i}");
+		personalMovieDB.genres[i - 1] = prompt(`Your favorite genres has a number ${i}`);
 	}
 }
 
 writeYourGenres();
+
+function calculateVolumeAndArea(rebro) {
+	if (rebro < 0 || typeof(rebro) != "number" || !Number.isInteger(rebro)) {
+		return "При вычислении произошла ошибка";
+	} 
+	let s = rebro * rebro * 6,
+		v = rebro * rebro * rebro;
+
+	return `Объем куба: ${v}, площадь всей поверхности: ${s}`;
+}
+
+calculateVolumeAndArea(15.5);
